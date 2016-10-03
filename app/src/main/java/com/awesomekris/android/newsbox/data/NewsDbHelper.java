@@ -25,7 +25,7 @@ public class NewsDbHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_SECTION_TABLE = "CREATE TABLE " + NewsContract.SectionEntry.TABLE_NAME
                 + " (" +
                 NewsContract.SectionEntry._ID + " INTEGER PRIMARY KEY NOT NULL, " +
-                NewsContract.SectionEntry.COLUMN_SECTION_ID + " TEXT  NOT NULL, " +
+                NewsContract.SectionEntry.COLUMN_SECTION_ID + " TEXT UNIQUE NOT NULL, " +
                 NewsContract.SectionEntry.COLUMN_WEB_TITLE + " TEXT  NOT NULL, " +
                 NewsContract.SectionEntry.COLUMN_WEB_URL + " TEXT NOT NULL, " +
                 NewsContract.SectionEntry.COLUMN_API_URL + " TEXT NOT NULL, " +
@@ -34,7 +34,7 @@ public class NewsDbHelper extends SQLiteOpenHelper {
 
         final String SQL_CREATE_CONTENT_TABLE = "CREATE TABLE " + NewsContract.ContentEntry.TABLE_NAME + " (" +
                 NewsContract.ContentEntry._ID + " INTEGER PRIMARY KEY NOT NULL," +
-                NewsContract.ContentEntry.COLUMN_CONTENT_ID + " TEXT  NOT NULL, " +
+                NewsContract.ContentEntry.COLUMN_CONTENT_ID + " TEXT UNIQUE NOT NULL, " +
                 NewsContract.ContentEntry.COLUMN_SECTION_ID + " TEXT NOT NULL, " +
                 NewsContract.ContentEntry.COLUMN_WEB_PUBLICATION_DATE + " TEXT NOT NULL, " +
                 NewsContract.ContentEntry.COLUMN_HEADLINE + " TEXT NOT NULL, " +

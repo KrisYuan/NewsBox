@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.awesomekris.android.newsbox.sync.NewsBoxSyncAdapter;
+
 public class NewsList extends AppCompatActivity {
 
     private final static String POSITION = "POSITION";
@@ -21,6 +23,7 @@ public class NewsList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        NewsBoxSyncAdapter.initializeSyncAdapter(this);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
