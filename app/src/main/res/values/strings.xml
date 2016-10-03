@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NewsBox</string>
+    <string name="action_settings">Settings</string>
+    <string name="content_authority">com.awesomekris.android.newsbox</string>
+</resources>
