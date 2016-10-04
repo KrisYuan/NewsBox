@@ -17,14 +17,15 @@ import com.awesomekris.android.newsbox.sync.NewsBoxSyncAdapter;
 
 import java.util.ArrayList;
 
-public class NewsList extends AppCompatActivity{
+public class NewsList extends AppCompatActivity {
 
     private final static String POSITION = "POSITION";
-//    private static final int SECTION_LOADER_ID = 0;
+
     TabLayout mTabLayout;
     ArrayList<String> mTabArray = new ArrayList<String>();
     ViewPager mViewPager;
     NewsListFragmentPagerAdapter mPagerAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,6 @@ public class NewsList extends AppCompatActivity{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        getLoaderManager().initLoader(SECTION_LOADER_ID,null,this);
         Cursor sectionCursor = getContentResolver().query(NewsContract.SectionEntry.CONTENT_URI,null,null,null,null);
         if(sectionCursor.getCount() != 0){
             mTabArray.clear();
@@ -44,10 +44,18 @@ public class NewsList extends AppCompatActivity{
                 mTabArray.add(sectionName);
             }
         }
+        sectionCursor.close();
+
+//        Bundle arguments = new Bundle();
+//        arguments.putStringArrayList(NewsListFragment.TAG_ARRAY, mTabArray);
+//        NewsListFragment fragment = new NewsListFragment();
+//        fragment.setArguments(arguments);
+
 
         mTabLayout = (TabLayout) findViewById(R.id.section_tab);
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
-        mPagerAdapter = new NewsListFragmentPagerAdapter(getSupportFragmentManager(),this,mTabArray);
+        mPagerAdapter = new NewsListFragmentPagerAdapter(getSupportFragmentManager(),this, mTabArray);
+
 
         mViewPager.setAdapter(mPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
@@ -97,6 +105,7 @@ public class NewsList extends AppCompatActivity{
             }
         });
     }
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
