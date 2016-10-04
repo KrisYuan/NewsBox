@@ -1,5 +1,6 @@
 package com.awesomekris.android.newsbox;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,12 +12,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.awesomekris.android.newsbox.data.NewsContract;
 import com.awesomekris.android.newsbox.sync.NewsBoxSyncAdapter;
 
-public class NewsList extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class NewsList extends AppCompatActivity{
 
     private final static String POSITION = "POSITION";
+//    private static final int SECTION_LOADER_ID = 0;
     TabLayout mTabLayout;
+    ArrayList<String> mTabArray = new ArrayList<String>();
     ViewPager mViewPager;
     NewsListFragmentPagerAdapter mPagerAdapter;
 
@@ -28,13 +34,24 @@ public class NewsList extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+//        getLoaderManager().initLoader(SECTION_LOADER_ID,null,this);
+        Cursor sectionCursor = getContentResolver().query(NewsContract.SectionEntry.CONTENT_URI,null,null,null,null);
+        if(sectionCursor.getCount() != 0){
+            mTabArray.clear();
+            while(sectionCursor.moveToNext()){
+                int sectionIndex = sectionCursor.getColumnIndex(NewsContract.SectionEntry.COLUMN_SECTION_ID);
+                String sectionName = sectionCursor.getString(sectionIndex);
+                mTabArray.add(sectionName);
+            }
+        }
+
         mTabLayout = (TabLayout) findViewById(R.id.section_tab);
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
-        mPagerAdapter = new NewsListFragmentPagerAdapter(getSupportFragmentManager(),this);
+        mPagerAdapter = new NewsListFragmentPagerAdapter(getSupportFragmentManager(),this,mTabArray);
 
         mViewPager.setAdapter(mPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
-        mTabLayout.setTabMode(TabLayout.MODE_FIXED);
+        mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 
         mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
             @Override
