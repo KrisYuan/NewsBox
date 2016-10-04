@@ -8,4 +8,7 @@
     <string name="content_authority">com.awesomekris.android.newsbox</string>
     <string name="title_activity_news_detail">NewsDetailActivity</string>
 
+    <!-- Share Element Transition -->
+    <string name="photo_transition">photo_transition</string>
+
 </resources>

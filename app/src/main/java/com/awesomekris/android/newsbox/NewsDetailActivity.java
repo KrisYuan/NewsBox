@@ -1,5 +1,6 @@
 package com.awesomekris.android.newsbox;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,11 +10,11 @@ import android.view.View;
 
 public class NewsDetailActivity extends AppCompatActivity {
 
-    public static final String HEADLINE = "HEADLINE";
-    public static final String PUBLICATION_DATE = "PUBLICATION_DATE";
-    public static final String TRAIL_TEXT = "TRAIL_TEXT";
-    public static final String THUMBNAIL = "THUMBNAIL";
-    public static final String BODAY_TEXT_SUMMARY = "BODY_TEXT_SUMMARY";
+//    public static final String HEADLINE = "HEADLINE";
+//    public static final String PUBLICATION_DATE = "PUBLICATION_DATE";
+//    public static final String TRAIL_TEXT = "TRAIL_TEXT";
+//    public static final String THUMBNAIL = "THUMBNAIL";
+//    public static final String BODAY_TEXT_SUMMARY = "BODY_TEXT_SUMMARY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,6 @@ public class NewsDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_news_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -34,4 +34,8 @@ public class NewsDetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    @Override
+    public Intent getParentActivityIntent() {
+        return super.getParentActivityIntent().addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    }
 }

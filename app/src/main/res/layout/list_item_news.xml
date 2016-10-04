@@ -20,8 +20,9 @@
         <ImageView
             android:id="@+id/thumbnail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="240dp"
             android:background="@color/photo_placeholder"
+            android:transitionName="@string/photo_transition"
             android:scaleType="centerCrop"/>
 
         <TextView

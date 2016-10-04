@@ -16,33 +16,58 @@
             android:id="@+id/detail_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="@dimen/detail_photo_height"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:transitionName="@string/photo_transition" />
 
-        <TextView
-            android:id="@+id/detail_headline"
-            style="?android:attr/textAppearanceLarge"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed" />
+            android:orientation="vertical"
+            android:background="@android:color/black">
 
-        <TextView
-            android:id="@+id/detail_publication_date"
-            style="?android:attr/textAppearanceSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/detail_headline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/headline_margin"
+                android:fontFamily="sans-serif-condensed"
+                android:paddingEnd="@dimen/list_side_margin"
+                android:paddingStart="@dimen/list_side_margin"
+                android:textColor="@android:color/white"
+                android:textSize="24dp" />
 
-        <TextView
-            android:id="@+id/detail_trail_text"
-            style="?android:attr/textAppearanceSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/detail_publication_date"
+                style="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/list_side_margin"
+                android:paddingStart="@dimen/list_side_margin"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/detail_trail_text"
+                style="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/list_side_margin"
+                android:paddingEnd="@dimen/list_side_margin"
+                android:paddingStart="@dimen/list_side_margin"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/detail_body_text_summary"
             style="?android:attr/textAppearanceMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="serif" />
+            android:layout_marginTop="@dimen/body_text_summary_margin"
+            android:fontFamily="serif"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:textColor="@android:color/black"
+            android:textSize="18dp" />
     </LinearLayout>
 
 </ScrollView>

@@ -84,9 +84,9 @@ public class NewsListRecyclerViewAdapter  extends RecyclerViewCursorAdapter<Recy
             @Override
             public void onClick(View view) {
                 //TODO: go to detail fragment
-//                    view.setTransitionName(getString(R.string.transition_photo));
+//                    view.setTransitionName(mContext.getString(R.string.photo_transition));
 //                    ActivityOptions options = ActivityOptions
-//                            .makeSceneTransitionAnimation(ArticleDetailActivity.class, view, getString(R.string.transition_photo));
+//                            .makeSceneTransitionAnimation(NewsDetailActivity.class, view, mContext.getString(R.string.photo_transition));
                 String[] detailNews = new String[]{mHeadline,mPublicationDate,mTrailText,mThumbnail,mBodyTextSummary};
 //                Bundle detailNews = new Bundle();
 //                detailNews.putString(mHeadline, NewsDetailActivity.HEADLINE);
