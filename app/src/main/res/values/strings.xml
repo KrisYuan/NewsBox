@@ -6,5 +6,6 @@
     <!-- SyncAdapter related -->
     <string name="sync_account_type">newsbox.example.com</string>
     <string name="content_authority">com.awesomekris.android.newsbox</string>
+    <string name="title_activity_news_detail">NewsDetailActivity</string>
 
 </resources>

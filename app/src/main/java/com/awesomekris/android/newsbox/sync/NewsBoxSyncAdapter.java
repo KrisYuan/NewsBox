@@ -144,7 +144,7 @@ public class NewsBoxSyncAdapter extends AbstractThreadedSyncAdapter {
                         .appendPath(PATH_SEARCH)
                         .appendQueryParameter(PARAM_SECTION, sectionId)
                         .appendQueryParameter(PARAM_FORMAT, FORMAT)
-                        .appendQueryParameter(PARAM_FROM_DATE, "2016-10-02")
+                        .appendQueryParameter(PARAM_FROM_DATE, "2016-10-01")
                         .appendQueryParameter(PARAM_SHOW_FIELDS, SHOW_FIELDS)
                         .appendQueryParameter(PARAM_SHOW_BLOCKS, SHOW_BLOCKS)
                         .appendQueryParameter(PARAM_API_KEY, BuildConfig.THE_GUARDIAN_API_KEY).build();

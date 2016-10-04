@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".NewsListFragment"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_news_list">
 
     <TextView
         android:id="@+id/news_title"

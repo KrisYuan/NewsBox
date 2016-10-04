@@ -50,13 +50,15 @@ public class NewsListFragment extends Fragment implements LoaderManager.LoaderCa
 
 
         mPage = getArguments().getInt(NEWS_LIST_PAGE);
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_news_list, container, false);
         TextView textView = (TextView) rootView.findViewById(R.id.news_title);
         textView.setText("Fragment #" + mPage);
 
         Cursor sectionCursor = getActivity().getContentResolver().query(NewsContract.SectionEntry.CONTENT_URI,null,null,null,null);
         sectionCursor.moveToPosition(mPage);
-        mTabTitle = sectionCursor.getString(sectionCursor.getColumnIndex(NewsContract.SectionEntry.COLUMN_SECTION_ID));
+        if(sectionCursor.getCount()!=0) {
+            mTabTitle = sectionCursor.getString(sectionCursor.getColumnIndex(NewsContract.SectionEntry.COLUMN_SECTION_ID));
+        }
         sectionCursor.close();
 
         mLinearLayoutManager = new LinearLayoutManager(getContext());

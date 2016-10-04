@@ -1,6 +1,7 @@
 package com.awesomekris.android.newsbox;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,25 +20,36 @@ import com.squareup.picasso.Picasso;
 public class NewsListRecyclerViewAdapter  extends RecyclerViewCursorAdapter<RecyclerView.ViewHolder> {
 
     private static final String LOG_TAG = NewsListRecyclerViewAdapter.class.getSimpleName();
+
 //    private Cursor mCursor;
     private Context mContext;
+
+    private String mContentId;
+    private String mHeadline;
+    private String mPublicationDate;
+    private String mTrailText;
+    private String mThumbnail;
+    private String mBodyTextSummary;
 
     public NewsListRecyclerViewAdapter(Context context, Cursor c, int flags) {
         super(context, c, flags);
         mContext = context;
-        mCursor = c;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, Cursor cursor) {
 
-        ((ViewHolder)holder).titleView.setText(mCursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_HEADLINE));
-        ((ViewHolder)holder).dateView.setText(mCursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_WEB_PUBLICATION_DATE));
-        ((ViewHolder)holder).trailView.setText(mCursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_TRAIL_TEXT));
+        mContentId = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_ID);
+        mHeadline = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_HEADLINE);
+        mPublicationDate = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_WEB_PUBLICATION_DATE);
+        mTrailText = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_TRAIL_TEXT);
+        mThumbnail = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_THUMBNAIL);
+        mBodyTextSummary = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_BODY_TEXT_SUMMARY);
 
-        String thumbnailUrl = mCursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_THUMBNAIL);
-        Picasso.with(mContext).load(thumbnailUrl).into(((ViewHolder)holder).thumbnailView);
-
+        ((ViewHolder)holder).titleView.setText(mHeadline);
+        ((ViewHolder)holder).dateView.setText(mPublicationDate);
+        ((ViewHolder)holder).trailView.setText(mTrailText);
+        Picasso.with(mContext).load(mThumbnail).into(((ViewHolder)holder).thumbnailView);
 
     }
 
@@ -75,21 +87,20 @@ public class NewsListRecyclerViewAdapter  extends RecyclerViewCursorAdapter<Recy
 //                    view.setTransitionName(getString(R.string.transition_photo));
 //                    ActivityOptions options = ActivityOptions
 //                            .makeSceneTransitionAnimation(ArticleDetailActivity.class, view, getString(R.string.transition_photo));
-//                    startActivity(new Intent(Intent.ACTION_VIEW,
-//                            ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition()))));
+                String[] detailNews = new String[]{mHeadline,mPublicationDate,mTrailText,mThumbnail,mBodyTextSummary};
+//                Bundle detailNews = new Bundle();
+//                detailNews.putString(mHeadline, NewsDetailActivity.HEADLINE);
+//                detailNews.putString(mPublicationDate, NewsDetailActivity.PUBLICATION_DATE);
+//                detailNews.putString(mTrailText, NewsDetailActivity.TRAIL_TEXT);
+//                detailNews.putString(mThumbnail, NewsDetailActivity.THUMBNAIL);
+//                detailNews.putString(mBodyTextSummary, NewsDetailActivity.BODAY_TEXT_SUMMARY);
+
+                Intent intent = new Intent(mContext, NewsDetailActivity.class);
+                intent.putExtra(NewsDetailActivityFragment.NEWS_DETAIL,detailNews);
+                mContext.startActivity(intent);
             }
         });
         return vh;
     }
-//
-//    @Override
-//    public int getItemCount() {
-//        return mCursor.getCount();
-//    }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        mCursor.moveToPosition(position);
-//        return mCursor.getInt(NewsContract.ContentEntry.COLUMN_INDEX_ID);
-//    }
+
 }

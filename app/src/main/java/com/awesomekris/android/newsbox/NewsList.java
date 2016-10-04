@@ -31,7 +31,7 @@ public class NewsList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         NewsBoxSyncAdapter.initializeSyncAdapter(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_news_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -45,12 +45,6 @@ public class NewsList extends AppCompatActivity {
             }
         }
         sectionCursor.close();
-
-//        Bundle arguments = new Bundle();
-//        arguments.putStringArrayList(NewsListFragment.TAG_ARRAY, mTabArray);
-//        NewsListFragment fragment = new NewsListFragment();
-//        fragment.setArguments(arguments);
-
 
         mTabLayout = (TabLayout) findViewById(R.id.section_tab);
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
