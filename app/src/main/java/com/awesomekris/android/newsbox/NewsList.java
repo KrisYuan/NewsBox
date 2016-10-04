@@ -12,7 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import com.awesomekris.android.newsbox.data.NewsContract;
 import com.awesomekris.android.newsbox.sync.NewsBoxSyncAdapter;
@@ -27,6 +26,16 @@ public class NewsList extends AppCompatActivity {
     ArrayList<String> mTabArray = new ArrayList<String>();
     ViewPager mViewPager;
     NewsListFragmentPagerAdapter mPagerAdapter;
+//    boolean isConnected;
+String[] defaultTabTitle = new String[]{"artanddesign","australia-news","better-business","books","business","cardiff","childrens-books-site"
+        ,"cities","commentisfree","community","crosswords","culture","culture-network","culture-professionals-network","edinburgh","education"
+        ,"enterprise-network","environment","extra","fashion","film","football","global-development","global-development-professionals-network","government-computing-network"
+        ,"guardian-professional","healthcare-network","help","higher-education-network","housing-network","info","jobsadvice"
+        ,"katine","law","leeds","lifeandstyle","local","local-government-network","media","media-network","membership"
+        , "money","music","news","politics","public-leaders-network","science","search","small-business-network",
+        "social-care-network","social-enterprise-network","society","society-professionals","sport","stage","teacher-network"
+        ,"technology","theguardian","theobserver","travel","travel/offers","tv-and-radio","uk-news","us-news","voluntary-sector-network","weather","women-in-leadership","world"};
+
 
 
     @Override
@@ -37,6 +46,12 @@ public class NewsList extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+//        isConnected = Utility.isNetworkAvailable(this);
+//        if(isConnected){
+//            NewsBoxSyncAdapter.syncImmediately(this);
+//        }
+
         Cursor sectionCursor = getContentResolver().query(NewsContract.SectionEntry.CONTENT_URI,null,null,null,null);
         if(sectionCursor.getCount() != 0){
             mTabArray.clear();
@@ -44,6 +59,10 @@ public class NewsList extends AppCompatActivity {
                 int sectionIndex = sectionCursor.getColumnIndex(NewsContract.SectionEntry.COLUMN_SECTION_ID);
                 String sectionName = sectionCursor.getString(sectionIndex);
                 mTabArray.add(sectionName);
+            }
+        }else{
+            for(String title : defaultTabTitle){
+                mTabArray.add(title);
             }
         }
         sectionCursor.close();
@@ -136,6 +155,8 @@ public class NewsList extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     @Override
     public Intent getParentActivityIntent() {
