@@ -6,11 +6,6 @@
     tools:context=".NewsListFragment"
     tools:showIn="@layout/activity_news_list">
 
-    <TextView
-        android:id="@+id/news_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
@@ -21,5 +16,13 @@
         android:paddingRight="@dimen/list_side_margin"
         android:paddingTop="8dp"
         android:scrollbarStyle="outsideOverlay" />
+
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/empty_view_hint" />
 
 </LinearLayout>
