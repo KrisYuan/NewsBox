@@ -66,7 +66,9 @@ public class NewsListFragment extends Fragment implements LoaderManager.LoaderCa
 
         mPage = getArguments().getInt(NEWS_LIST_PAGE);
         View rootView = inflater.inflate(R.layout.fragment_news_list, container, false);
+
         TextView emptyView = (TextView) rootView.findViewById(R.id.empty_view);
+
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.swipe_refresh_layout);

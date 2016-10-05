@@ -1,13 +1,15 @@
 package com.awesomekris.android.newsbox;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -30,6 +32,8 @@ public class NewsDetailActivityFragment extends Fragment {
     private TextView publicationDateView;
     private TextView trailTextView;
     private TextView bodyTextSummaryView;
+
+    private AdView mAdView;
 
     public NewsDetailActivityFragment() {
     }
@@ -59,6 +63,10 @@ public class NewsDetailActivityFragment extends Fragment {
         trailTextView.setText(mTrailText);
         bodyTextSummaryView.setText(mBodyTextSummary);
 
+
+        mAdView = (AdView)rootView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         return rootView;
     }

@@ -26,16 +26,15 @@ public class NewsList extends AppCompatActivity {
     ArrayList<String> mTabArray = new ArrayList<String>();
     ViewPager mViewPager;
     NewsListFragmentPagerAdapter mPagerAdapter;
-//    boolean isConnected;
-String[] defaultTabTitle = new String[]{"artanddesign","australia-news","better-business","books","business","cardiff","childrens-books-site"
-        ,"cities","commentisfree","community","crosswords","culture","culture-network","culture-professionals-network","edinburgh","education"
-        ,"enterprise-network","environment","extra","fashion","film","football","global-development","global-development-professionals-network","government-computing-network"
-        ,"guardian-professional","healthcare-network","help","higher-education-network","housing-network","info","jobsadvice"
-        ,"katine","law","leeds","lifeandstyle","local","local-government-network","media","media-network","membership"
-        , "money","music","news","politics","public-leaders-network","science","search","small-business-network",
-        "social-care-network","social-enterprise-network","society","society-professionals","sport","stage","teacher-network"
-        ,"technology","theguardian","theobserver","travel","travel/offers","tv-and-radio","uk-news","us-news","voluntary-sector-network","weather","women-in-leadership","world"};
-
+    //    boolean isConnected;
+    String[] defaultTabTitle = new String[]{"artanddesign", "australia-news", "better-business", "books", "business", "cardiff", "childrens-books-site"
+            , "cities", "commentisfree", "community", "crosswords", "culture", "culture-network", "culture-professionals-network", "edinburgh", "education"
+            , "enterprise-network", "environment", "extra", "fashion", "film", "football", "global-development", "global-development-professionals-network", "government-computing-network"
+            , "guardian-professional", "healthcare-network", "help", "higher-education-network", "housing-network", "info", "jobsadvice"
+            , "katine", "law", "leeds", "lifeandstyle", "local", "local-government-network", "media", "media-network", "membership"
+            , "money", "music", "news", "politics", "public-leaders-network", "science", "search", "small-business-network",
+            "social-care-network", "social-enterprise-network", "society", "society-professionals", "sport", "stage", "teacher-network"
+            , "technology", "theguardian", "theobserver", "travel", "travel/offers", "tv-and-radio", "uk-news", "us-news", "voluntary-sector-network", "weather", "women-in-leadership", "world"};
 
 
     @Override
@@ -52,16 +51,16 @@ String[] defaultTabTitle = new String[]{"artanddesign","australia-news","better-
 //            NewsBoxSyncAdapter.syncImmediately(this);
 //        }
 
-        Cursor sectionCursor = getContentResolver().query(NewsContract.SectionEntry.CONTENT_URI,null,null,null,null);
-        if(sectionCursor.getCount() != 0){
+        Cursor sectionCursor = getContentResolver().query(NewsContract.SectionEntry.CONTENT_URI, null, null, null, null);
+        if (sectionCursor.getCount() != 0) {
             mTabArray.clear();
-            while(sectionCursor.moveToNext()){
+            while (sectionCursor.moveToNext()) {
                 int sectionIndex = sectionCursor.getColumnIndex(NewsContract.SectionEntry.COLUMN_SECTION_ID);
                 String sectionName = sectionCursor.getString(sectionIndex);
                 mTabArray.add(sectionName);
             }
-        }else{
-            for(String title : defaultTabTitle){
+        } else {
+            for (String title : defaultTabTitle) {
                 mTabArray.add(title);
             }
         }
@@ -69,14 +68,14 @@ String[] defaultTabTitle = new String[]{"artanddesign","australia-news","better-
 
         mTabLayout = (TabLayout) findViewById(R.id.section_tab);
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
-        mPagerAdapter = new NewsListFragmentPagerAdapter(getSupportFragmentManager(),this, mTabArray);
+        mPagerAdapter = new NewsListFragmentPagerAdapter(getSupportFragmentManager(), this, mTabArray);
 
 
         mViewPager.setAdapter(mPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
 
-        mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
+        mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
 
@@ -125,7 +124,7 @@ String[] defaultTabTitle = new String[]{"artanddesign","australia-news","better-
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(POSITION,mTabLayout.getSelectedTabPosition());
+        outState.putInt(POSITION, mTabLayout.getSelectedTabPosition());
     }
 
     @Override
@@ -155,7 +154,6 @@ String[] defaultTabTitle = new String[]{"artanddesign","australia-news","better-
 
         return super.onOptionsItemSelected(item);
     }
-
 
 
     @Override
