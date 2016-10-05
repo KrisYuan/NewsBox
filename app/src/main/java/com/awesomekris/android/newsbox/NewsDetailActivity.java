@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 public class NewsDetailActivity extends AppCompatActivity {
 
 //    public static final String HEADLINE = "HEADLINE";
@@ -32,6 +35,15 @@ public class NewsDetailActivity extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Tracker tracker = ((MyApplication)getApplication()).getTracker();
+        tracker.setScreenName("News Detail Screen");
+        tracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     @Override

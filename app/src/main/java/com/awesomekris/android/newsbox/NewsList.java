@@ -12,9 +12,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.awesomekris.android.newsbox.data.NewsContract;
 import com.awesomekris.android.newsbox.sync.NewsBoxSyncAdapter;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.util.ArrayList;
 
@@ -45,11 +48,14 @@ public class NewsList extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        ((MyApplication)getApplication()).startTracking();
 
-//        isConnected = Utility.isNetworkAvailable(this);
-//        if(isConnected){
-//            NewsBoxSyncAdapter.syncImmediately(this);
-//        }
+        boolean isConnected = Utility.isNetworkAvailable(this);
+        if(isConnected){
+            NewsBoxSyncAdapter.syncImmediately(this);
+        }else {
+            Toast.makeText(this,"Network unavailable!",Toast.LENGTH_SHORT).show();
+        }
 
         Cursor sectionCursor = getContentResolver().query(NewsContract.SectionEntry.CONTENT_URI, null, null, null, null);
         if (sectionCursor.getCount() != 0) {
@@ -120,6 +126,14 @@ public class NewsList extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Tracker tracker = ((MyApplication)getApplication()).getTracker();
+        tracker.setScreenName("News List Screen");
+        tracker.send(new HitBuilders.ScreenViewBuilder().build());
+    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

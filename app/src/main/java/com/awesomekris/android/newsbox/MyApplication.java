@@ -14,6 +14,7 @@ public class MyApplication extends Application {
     public Tracker mTracker;
 
     public void startTracking(){
+
         if (mTracker == null) {
             GoogleAnalytics ga = GoogleAnalytics.getInstance(this);
 

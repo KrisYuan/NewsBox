@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -41,10 +40,7 @@ public class NewsListFragment extends Fragment implements LoaderManager.LoaderCa
             "social-care-network","social-enterprise-network","society","society-professionals","sport","stage","teacher-network"
     ,"technology","theguardian","theobserver","travel","travel/offers","tv-and-radio","uk-news","us-news","voluntary-sector-network","weather","women-in-leadership","world"};
 
-
-
-    private SwipeRefreshLayout mSwipeRefreshLayout;
-    private boolean mIsRefreshing = false;
+    TextView mEmptyView;
 
 
     public static NewsListFragment newInstance(int page) {
@@ -67,23 +63,17 @@ public class NewsListFragment extends Fragment implements LoaderManager.LoaderCa
         mPage = getArguments().getInt(NEWS_LIST_PAGE);
         View rootView = inflater.inflate(R.layout.fragment_news_list, container, false);
 
-        TextView emptyView = (TextView) rootView.findViewById(R.id.empty_view);
+        mEmptyView = (TextView) rootView.findViewById(R.id.empty_view);
 
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
-
-        mSwipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.swipe_refresh_layout);
-
 
         Cursor sectionCursor = getActivity().getContentResolver().query(NewsContract.SectionEntry.CONTENT_URI,null,null,null,null);
         sectionCursor.moveToPosition(mPage);
         if(sectionCursor.getCount()!=0) {
             mTabTitle = sectionCursor.getString(sectionCursor.getColumnIndex(NewsContract.SectionEntry.COLUMN_SECTION_ID));
-            mRecyclerView.setVisibility(View.VISIBLE);
-            emptyView.setVisibility(View.GONE);
+
         }else{
             mTabTitle = defaultTabTitle[mPage];
-            emptyView.setVisibility(View.VISIBLE);
-            mRecyclerView.setVisibility(View.GONE);
         }
         sectionCursor.close();
 
@@ -96,53 +86,8 @@ public class NewsListFragment extends Fragment implements LoaderManager.LoaderCa
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mRecyclerView.setAdapter(mNewsListRecyclerViewAdapter);
 
-//        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                refresh();
-//            }
-//        });
-
-
         return rootView;
     }
-
-//    private void refresh() {
-//        Intent intent = new Intent(getActivity(), UpdaterService.class);
-//        intent.putExtra("POSITION",Integer.toString(mPage));
-//        getActivity().startService(intent);
-//    }
-
-//    private void updateRefreshingUI() {
-//        mSwipeRefreshLayout.setRefreshing(mIsRefreshing);
-//    }
-
-//    private BroadcastReceiver mRefreshingReceiver = new BroadcastReceiver() {
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//            if (UpdaterService.BROADCAST_ACTION_STATE_CHANGE.equals(intent.getAction())) {
-//                mIsRefreshing = intent.getBooleanExtra(UpdaterService.EXTRA_REFRESHING, false);
-//                String tabTitle = intent.getStringExtra("TABTITLE");
-//                Bundle bundle = new Bundle();
-//                bundle.putString("TABTITLE", tabTitle);
-//                updateRefreshingUI();
-//                getActivity().getLoaderManager().restartLoader(0,bundle,null);
-//            }
-//        }
-//    };
-
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        new IntentFilter(UpdaterService.BROADCAST_ACTION_STATE_CHANGE);
-//
-//    }
-//
-//    @Override
-//    public void onStop() {
-//        super.onStop();
-//        getActivity().unregisterReceiver(mRefreshingReceiver);
-//    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -162,6 +107,12 @@ public class NewsListFragment extends Fragment implements LoaderManager.LoaderCa
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
         mNewsListRecyclerViewAdapter.swapCursor(cursor);
+        if(cursor.getCount() == 0){
+            mEmptyView.setVisibility(View.VISIBLE);
+        }else {
+            mEmptyView.setVisibility(View.GONE);
+        }
+
     }
 
     @Override

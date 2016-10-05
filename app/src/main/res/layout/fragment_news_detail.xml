@@ -59,6 +59,13 @@
 
         </LinearLayout>
 
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id"/>
+
         <TextView
             android:id="@+id/detail_body_text_summary"
             style="?android:attr/textAppearanceMedium"
@@ -71,12 +78,7 @@
             android:textColor="@android:color/black"
             android:textSize="18dp" />
 
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            ads:adSize="BANNER"
-            ads:adUnitId="@string/banner_ad_unit_id"/>
+
 
     </LinearLayout>
 
