@@ -7,9 +7,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.squareup.picasso.Picasso;
 
 public class NewsDetailActivity extends AppCompatActivity {
 
@@ -18,6 +20,8 @@ public class NewsDetailActivity extends AppCompatActivity {
 //    public static final String TRAIL_TEXT = "TRAIL_TEXT";
 //    public static final String THUMBNAIL = "THUMBNAIL";
 //    public static final String BODAY_TEXT_SUMMARY = "BODY_TEXT_SUMMARY";
+    private ImageView mThumbnailView;
+    private String mHeadline;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,14 @@ public class NewsDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_news_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        mThumbnailView = (ImageView) findViewById(R.id.detail_thumbnail);
+        String[] detailNews = getIntent().getStringArrayExtra(NewsDetailActivityFragment.NEWS_DETAIL);
+        mHeadline = detailNews[0];
+        String mThumbnail = detailNews[3];
+        Picasso.with(this).load(mThumbnail).into(mThumbnailView);
+//        getSupportActionBar().setTitle(mHeadline);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

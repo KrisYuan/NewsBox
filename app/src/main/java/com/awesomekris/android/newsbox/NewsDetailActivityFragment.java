@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.squareup.picasso.Picasso;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -38,12 +37,18 @@ public class NewsDetailActivityFragment extends Fragment {
     public NewsDetailActivityFragment() {
     }
 
+    public NewsDetailActivity getActivityCast() {
+        return (NewsDetailActivity) getActivity();
+    }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View rootView = inflater.inflate(R.layout.fragment_news_detail, container, false);
 
-//        Bundle bundle = getActivity().getIntent().getBundleExtra(NEWS_DETAIL);
+
         String[] detailNews = getActivity().getIntent().getStringArrayExtra(NEWS_DETAIL);
         mHeadline = detailNews[0];//bundle.getString(NewsDetailActivity.HEADLINE);
         mPublicationDate = detailNews[1];//bundle.getString(NewsDetailActivity.PUBLICATION_DATE);
@@ -51,13 +56,13 @@ public class NewsDetailActivityFragment extends Fragment {
         mThumbnail = detailNews[3];//bundle.getString(NewsDetailActivity.THUMBNAIL);
         mBodyTextSummary = detailNews[4];//bundle.getString(NewsDetailActivity.BODAY_TEXT_SUMMARY);
 
-        thumbnailView = (ImageView)rootView.findViewById(R.id.detail_thumbnail);
+//        thumbnailView = (ImageView)rootView.findViewById(R.id.detail_thumbnail);
         headlineView = (TextView)rootView.findViewById(R.id.detail_headline);
         publicationDateView = (TextView)rootView.findViewById(R.id.detail_publication_date);
         trailTextView = (TextView)rootView.findViewById(R.id.detail_trail_text);
         bodyTextSummaryView = (TextView)rootView.findViewById(R.id.detail_body_text_summary);
 
-        Picasso.with(getContext()).load(mThumbnail).into(thumbnailView);
+//        Picasso.with(getContext()).load(mThumbnail).into(thumbnailView);
         headlineView.setText(mHeadline);
         publicationDateView.setText(mPublicationDate);
         trailTextView.setText(mTrailText);
