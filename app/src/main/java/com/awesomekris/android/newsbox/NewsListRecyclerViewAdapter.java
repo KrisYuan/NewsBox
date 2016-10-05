@@ -1,8 +1,12 @@
 package com.awesomekris.android.newsbox;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +27,8 @@ public class NewsListRecyclerViewAdapter  extends RecyclerViewCursorAdapter<Recy
 
 //    private Cursor mCursor;
     private Context mContext;
+
+    ActivityOptions mOptions;
 
     private String mContentId;
     private String mHeadline;
@@ -70,12 +76,13 @@ public class NewsListRecyclerViewAdapter  extends RecyclerViewCursorAdapter<Recy
             titleView = (TextView) view.findViewById(R.id.news_title);
             trailView = (TextView) view.findViewById(R.id.news_trail);
             dateView = (TextView) view.findViewById(R.id.news_date);
+
         }
     }
 
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
 
         int layoutId = R.layout.list_item_news;
         View view = LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false);
@@ -85,8 +92,7 @@ public class NewsListRecyclerViewAdapter  extends RecyclerViewCursorAdapter<Recy
             public void onClick(View view) {
                 //TODO: go to detail fragment
 //                    view.setTransitionName(mContext.getString(R.string.photo_transition));
-//                    ActivityOptions options = ActivityOptions
-//                            .makeSceneTransitionAnimation(NewsDetailActivity.class, view, mContext.getString(R.string.photo_transition));
+
                 String[] detailNews = new String[]{mHeadline,mPublicationDate,mTrailText,mThumbnail,mBodyTextSummary};
 //                Bundle detailNews = new Bundle();
 //                detailNews.putString(mHeadline, NewsDetailActivity.HEADLINE);
@@ -95,9 +101,16 @@ public class NewsListRecyclerViewAdapter  extends RecyclerViewCursorAdapter<Recy
 //                detailNews.putString(mThumbnail, NewsDetailActivity.THUMBNAIL);
 //                detailNews.putString(mBodyTextSummary, NewsDetailActivity.BODAY_TEXT_SUMMARY);
 
-                Intent intent = new Intent(mContext, NewsDetailActivity.class);
+                Activity activity = (Activity) mContext;
+                ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        activity,
+                        vh.thumbnailView,
+                        mContext.getString(R.string.photo_transition));
+
+                Intent intent = new Intent(activity, NewsDetailActivity.class);
                 intent.putExtra(NewsDetailActivityFragment.NEWS_DETAIL,detailNews);
-                mContext.startActivity(intent);
+//                mContext.startActivity(intent);
+                ActivityCompat.startActivity(activity, intent, activityOptions.toBundle());
             }
         });
         return vh;
