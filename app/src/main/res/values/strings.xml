@@ -13,5 +13,7 @@
 
     <!-- Empty View Hint -->
     <string name="empty_view_hint">Sorry, there\'s no data available. Please check your network and try again later.</string>
-
+    <string name="empty_list_hint">No news available.</string>
+    <!-- Strings related to Widgets -->
+    <string name="title_widget_today">News Today</string>
 </resources>

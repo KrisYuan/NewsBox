@@ -29,7 +29,7 @@
         <provider
             android:name=".data.NewsProvider"
             android:authorities="@string/content_authority"
-            android:exported="false"
+            android:exported="true"
             android:syncable="true" />
 
         <!-- SyncAdapter's dummy authentication service -->
@@ -70,8 +70,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".UpdaterService"
-            android:exported="false" />
+        <receiver
+            android:name=".widget.NewsWidgetProvider"
+            android:label="@string/title_widget_today">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.awesomekris.android.newsbox.ACTION_DATA_UPDATED" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info_today" />
+        </receiver>
+        <service android:name=".widget.NewsWidgetRemoteViewService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
     </application>
 
 </manifest>

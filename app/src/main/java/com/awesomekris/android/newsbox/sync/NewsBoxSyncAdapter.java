@@ -7,6 +7,7 @@ import android.content.ContentProviderClient;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SyncRequest;
 import android.content.SyncResult;
 import android.database.Cursor;
@@ -40,6 +41,7 @@ import java.util.Vector;
 public class NewsBoxSyncAdapter extends AbstractThreadedSyncAdapter {
 
     public static final String LOG_TAG = NewsBoxSyncAdapter.class.getSimpleName();
+    public static final String ACTION_DATA_UPDATED = "com.awesomekris.android.newsbox.ACTION_DATA_UPDATED";
     public static final int SYNC_INTERVAL = 60 * 180;
     public static final int SYNC_FLEXTIME = SYNC_INTERVAL/3;
 
@@ -412,6 +414,7 @@ public class NewsBoxSyncAdapter extends AbstractThreadedSyncAdapter {
             }
             inserted = getContext().getContentResolver().bulkInsert(NewsContract.ContentEntry.CONTENT_URI,
                     toInsertContentContentValues.toArray(new ContentValues[toInsertContentContentValues.size()]));
+            updateWidgets();
         }
         Log.d(LOG_TAG, "FetchContentTask Complete. " + inserted + " Inserted");
     }
@@ -490,5 +493,12 @@ public class NewsBoxSyncAdapter extends AbstractThreadedSyncAdapter {
         }
     }
 
+    private void updateWidgets() {
+        Context context = getContext();
+        // Setting the package ensures that only components in our app will receive the broadcast
+        Intent dataUpdatedIntent = new Intent(ACTION_DATA_UPDATED)
+                .setPackage(context.getPackageName());
+        context.sendBroadcast(dataUpdatedIntent);
+    }
 
 }
