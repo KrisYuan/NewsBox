@@ -43,6 +43,7 @@ public class NewsListFragment extends Fragment implements LoaderManager.LoaderCa
     TextView mEmptyView;
 
 
+
     public static NewsListFragment newInstance(int page) {
 
         Bundle args = new Bundle();

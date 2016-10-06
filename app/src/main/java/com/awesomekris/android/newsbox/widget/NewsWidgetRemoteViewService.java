@@ -41,7 +41,7 @@ public class NewsWidgetRemoteViewService extends RemoteViewsService {
                 }
 
                 final long identityToken = Binder.clearCallingIdentity();
-//                String date = Utility.getCurrentDate(System.currentTimeMillis());
+//                String date = Utility.getStartDate(System.currentTimeMillis());
 //                String section = "news";
 //                String selection = NewsContract.ContentEntry.COLUMN_SECTION_ID + " = ?";
 //                String[] selectionArgs = new String[]{section};

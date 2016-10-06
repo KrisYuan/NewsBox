@@ -79,7 +79,7 @@ public class NewsBoxSyncAdapter extends AbstractThreadedSyncAdapter {
         String PARAM_SHOW_BLOCKS = "show-blocks";
 
         String FORMAT = "json";
-        String FROM_DATE = Utility.getCurrentDate(System.currentTimeMillis());
+        String FROM_DATE = Utility.getStartDate(System.currentTimeMillis());
         String SHOW_FIELDS = "starRating,headline,thumbnail,trailText,short-url";
         String SHOW_BLOCKS = "body";
 
@@ -161,7 +161,7 @@ public class NewsBoxSyncAdapter extends AbstractThreadedSyncAdapter {
                         .appendPath(PATH_SEARCH)
                         .appendQueryParameter(PARAM_SECTION, sectionId)
                         .appendQueryParameter(PARAM_FORMAT, FORMAT)
-                        .appendQueryParameter(PARAM_FROM_DATE, "2016-10-01")
+                        .appendQueryParameter(PARAM_FROM_DATE, FROM_DATE)
                         .appendQueryParameter(PARAM_SHOW_FIELDS, SHOW_FIELDS)
                         .appendQueryParameter(PARAM_SHOW_BLOCKS, SHOW_BLOCKS)
                         .appendQueryParameter(PARAM_API_KEY, BuildConfig.THE_GUARDIAN_API_KEY).build();
