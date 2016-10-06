@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -22,6 +23,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 //    public static final String BODAY_TEXT_SUMMARY = "BODY_TEXT_SUMMARY";
     private ImageView mThumbnailView;
     private String mHeadline;
+//    private String mShortUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +38,20 @@ public class NewsDetailActivity extends AppCompatActivity {
         mHeadline = detailNews[0];
         String mThumbnail = detailNews[3];
         Picasso.with(this).load(mThumbnail).into(mThumbnailView);
+//        mShortUrl = detailNews[5];
+//        Uri uri = Uri.parse(mShortUrl).buildUpon().build();
 //        getSupportActionBar().setTitle(mHeadline);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final Intent shareIntent = ShareCompat.IntentBuilder.from(this)
+                .setType("text/plain")
+                .setText(mHeadline)
+                .getIntent();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                startActivity(Intent.createChooser(shareIntent,Intent.ACTION_SEND));
+                Snackbar.make(view, "Share news with friends!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });

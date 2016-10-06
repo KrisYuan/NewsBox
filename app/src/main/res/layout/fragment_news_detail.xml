@@ -29,7 +29,8 @@
                 android:paddingEnd="@dimen/list_side_margin"
                 android:paddingStart="@dimen/list_side_margin"
                 android:textColor="@android:color/white"
-                android:textSize="24dp" />
+                android:textSize="24dp"
+                android:contentDescription="@string/a11y_headline"/>
 
             <TextView
                 android:id="@+id/detail_publication_date"
@@ -39,7 +40,8 @@
                 android:gravity="end"
                 android:paddingEnd="@dimen/list_side_margin"
                 android:paddingStart="@dimen/list_side_margin"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:contentDescription="@string/a11y_date"/>
 
             <TextView
                 android:id="@+id/detail_trail_text"
@@ -49,7 +51,8 @@
                 android:layout_marginTop="@dimen/list_side_margin"
                 android:paddingEnd="@dimen/list_side_margin"
                 android:paddingStart="@dimen/list_side_margin"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:contentDescription="@string/a11y_trail_text"/>
 
         </LinearLayout>
 
@@ -58,7 +61,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             ads:adSize="BANNER"
-            ads:adUnitId="@string/banner_ad_unit_id"/>
+            ads:adUnitId="@string/banner_ad_unit_id"
+            android:contentDescription="@string/a11y_admob"/>
 
         <TextView
             android:id="@+id/detail_body_text_summary"
@@ -70,7 +74,8 @@
             android:paddingEnd="8dp"
             android:paddingStart="8dp"
             android:textColor="@android:color/black"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:contentDescription="@string/a11y_body_text_summary"/>
 
 
     </LinearLayout>

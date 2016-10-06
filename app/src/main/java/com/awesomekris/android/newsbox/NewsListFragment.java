@@ -107,10 +107,13 @@ public class NewsListFragment extends Fragment implements LoaderManager.LoaderCa
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
         mNewsListRecyclerViewAdapter.swapCursor(cursor);
-        if(cursor.getCount() == 0){
-            mEmptyView.setVisibility(View.VISIBLE);
-        }else {
+
+        if(cursor.getCount() != 0){
+            mRecyclerView.setVisibility(View.VISIBLE);
             mEmptyView.setVisibility(View.GONE);
+        }else {
+            mRecyclerView.setVisibility(View.GONE);
+            mEmptyView.setVisibility(View.VISIBLE);
         }
 
     }

@@ -36,6 +36,7 @@ public class NewsListRecyclerViewAdapter  extends RecyclerViewCursorAdapter<Recy
     private String mTrailText;
     private String mThumbnail;
     private String mBodyTextSummary;
+//    private String mShortUrl;
 
     public NewsListRecyclerViewAdapter(Context context, Cursor c, int flags) {
         super(context, c, flags);
@@ -51,6 +52,7 @@ public class NewsListRecyclerViewAdapter  extends RecyclerViewCursorAdapter<Recy
         mTrailText = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_TRAIL_TEXT);
         mThumbnail = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_THUMBNAIL);
         mBodyTextSummary = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_BODY_TEXT_SUMMARY);
+//        mShortUrl = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_SHORT_URL);
 
         ((ViewHolder)holder).titleView.setText(mHeadline);
         ((ViewHolder)holder).dateView.setText(mPublicationDate);

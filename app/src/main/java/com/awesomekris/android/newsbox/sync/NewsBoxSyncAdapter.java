@@ -46,6 +46,15 @@ public class NewsBoxSyncAdapter extends AbstractThreadedSyncAdapter {
     public static final int SYNC_FLEXTIME = SYNC_INTERVAL/3;
 
     private ArrayList<String> mSectionIdList = new ArrayList<String>();
+    private String[] defaultTabTitle = new String[]{"artanddesign","australia-news","better-business","books","business","cardiff","childrens-books-site"
+            ,"cities","commentisfree","community","crosswords","culture","culture-network","culture-professionals-network","edinburgh","education"
+            ,"enterprise-network","environment","extra","fashion","film","football","global-development","global-development-professionals-network","government-computing-network"
+            ,"guardian-professional","healthcare-network","help","higher-education-network","housing-network","info","jobsadvice"
+            ,"katine","law","leeds","lifeandstyle","local","local-government-network","media","media-network","membership"
+            , "money","music","news","politics","public-leaders-network","science","search","small-business-network",
+            "social-care-network","social-enterprise-network","society","society-professionals","sport","stage","teacher-network"
+            ,"technology","theguardian","theobserver","travel","travel/offers","tv-and-radio","uk-news","us-news","voluntary-sector-network","weather","women-in-leadership","world"};
+
 
     public NewsBoxSyncAdapter(Context context, boolean autoInitialize) {
         super(context, autoInitialize);
@@ -134,6 +143,12 @@ public class NewsBoxSyncAdapter extends AbstractThreadedSyncAdapter {
                 } catch (final IOException e) {
                     Log.e(LOG_TAG, "Error closing stream",e);
                 }
+            }
+        }
+
+        if(mSectionIdList.size() == 0){
+            for(String title : defaultTabTitle){
+                mSectionIdList.add(title);
             }
         }
 
