@@ -1,5 +1,6 @@
 package com.awesomekris.android.newsbox;
 
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -31,14 +32,16 @@ public class NewsListFragment extends Fragment implements LoaderManager.LoaderCa
     NewsListRecyclerViewAdapter mNewsListRecyclerViewAdapter;
 //    ArrayList<String> mTabTitles = new ArrayList<String>();
     String mTabTitle;
-    String[] defaultTabTitle = new String[]{"artanddesign","australia-news","better-business","books","business","cardiff","childrens-books-site"
-    ,"cities","commentisfree","community","crosswords","culture","culture-network","culture-professionals-network","edinburgh","education"
-    ,"enterprise-network","environment","extra","fashion","film","football","global-development","global-development-professionals-network","government-computing-network"
-    ,"guardian-professional","healthcare-network","help","higher-education-network","housing-network","info","jobsadvice"
-            ,"katine","law","leeds","lifeandstyle","local","local-government-network","media","media-network","membership"
-           , "money","music","news","politics","public-leaders-network","science","search","small-business-network",
-            "social-care-network","social-enterprise-network","society","society-professionals","sport","stage","teacher-network"
-    ,"technology","theguardian","theobserver","travel","travel/offers","tv-and-radio","uk-news","us-news","voluntary-sector-network","weather","women-in-leadership","world"};
+
+    String[] defaultTabTitle;
+//            new String[]{"artanddesign","australia-news","better-business","books","business","cardiff","childrens-books-site"
+//    ,"cities","commentisfree","community","crosswords","culture","culture-network","culture-professionals-network","edinburgh","education"
+//    ,"enterprise-network","environment","extra","fashion","film","football","global-development","global-development-professionals-network","government-computing-network"
+//    ,"guardian-professional","healthcare-network","help","higher-education-network","housing-network","info","jobsadvice"
+//            ,"katine","law","leeds","lifeandstyle","local","local-government-network","media","media-network","membership"
+//           , "money","music","news","politics","public-leaders-network","science","search","small-business-network",
+//            "social-care-network","social-enterprise-network","society","society-professionals","sport","stage","teacher-network"
+//    ,"technology","theguardian","theobserver","travel","travel/offers","tv-and-radio","uk-news","us-news","voluntary-sector-network","weather","women-in-leadership","world"};
 
     TextView mEmptyView;
 
@@ -60,7 +63,8 @@ public class NewsListFragment extends Fragment implements LoaderManager.LoaderCa
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
+        Resources res = getResources();
+        defaultTabTitle = res.getStringArray(R.array.default_tab_titles);
         mPage = getArguments().getInt(NEWS_LIST_PAGE);
         View rootView = inflater.inflate(R.layout.fragment_news_list, container, false);
 

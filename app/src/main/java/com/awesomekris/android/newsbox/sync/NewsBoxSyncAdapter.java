@@ -43,26 +43,30 @@ public class NewsBoxSyncAdapter extends AbstractThreadedSyncAdapter {
     public static final String LOG_TAG = NewsBoxSyncAdapter.class.getSimpleName();
     public static final String ACTION_DATA_UPDATED = "com.awesomekris.android.newsbox.ACTION_DATA_UPDATED";
     public static final int SYNC_INTERVAL = 60 * 180;
-    public static final int SYNC_FLEXTIME = SYNC_INTERVAL/3;
+    public static final int SYNC_FLEXTIME = SYNC_INTERVAL / 3;
 
     private ArrayList<String> mSectionIdList = new ArrayList<String>();
-    private String[] defaultTabTitle = new String[]{"artanddesign","australia-news","better-business","books","business","cardiff","childrens-books-site"
-            ,"cities","commentisfree","community","crosswords","culture","culture-network","culture-professionals-network","edinburgh","education"
-            ,"enterprise-network","environment","extra","fashion","film","football","global-development","global-development-professionals-network","government-computing-network"
-            ,"guardian-professional","healthcare-network","help","higher-education-network","housing-network","info","jobsadvice"
-            ,"katine","law","leeds","lifeandstyle","local","local-government-network","media","media-network","membership"
-            , "money","music","news","politics","public-leaders-network","science","search","small-business-network",
-            "social-care-network","social-enterprise-network","society","society-professionals","sport","stage","teacher-network"
-            ,"technology","theguardian","theobserver","travel","travel/offers","tv-and-radio","uk-news","us-news","voluntary-sector-network","weather","women-in-leadership","world"};
+
+    private String[] defaultTabTitle;
+
+//            new String[]{"artanddesign","australia-news","better-business","books","business","cardiff","childrens-books-site"
+//            ,"cities","commentisfree","community","crosswords","culture","culture-network","culture-professionals-network","edinburgh","education"
+//            ,"enterprise-network","environment","extra","fashion","film","football","global-development","global-development-professionals-network","government-computing-network"
+//            ,"guardian-professional","healthcare-network","help","higher-education-network","housing-network","info","jobsadvice"
+//            ,"katine","law","leeds","lifeandstyle","local","local-government-network","media","media-network","membership"
+//            , "money","music","news","politics","public-leaders-network","science","search","small-business-network",
+//            "social-care-network","social-enterprise-network","society","society-professionals","sport","stage","teacher-network"
+//            ,"technology","theguardian","theobserver","travel","travel/offers","tv-and-radio","uk-news","us-news","voluntary-sector-network","weather","women-in-leadership","world"};
 
 
     public NewsBoxSyncAdapter(Context context, boolean autoInitialize) {
         super(context, autoInitialize);
+        defaultTabTitle = context.getResources().getStringArray(R.array.default_tab_titles);
     }
 
     @Override
     public void onPerformSync(Account account, Bundle bundle, String s, ContentProviderClient contentProviderClient, SyncResult syncResult) {
-        Log.d(LOG_TAG,"Starting sync");
+        Log.d(LOG_TAG, "Starting sync");
 
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
@@ -85,7 +89,7 @@ public class NewsBoxSyncAdapter extends AbstractThreadedSyncAdapter {
 
         //Get Section
         try {
-            if(mSectionIdList.size() != 0) {
+            if (mSectionIdList.size() != 0) {
                 mSectionIdList.clear();
             }
 
@@ -123,37 +127,37 @@ public class NewsBoxSyncAdapter extends AbstractThreadedSyncAdapter {
             responseJsonStr = buffer.toString();
             getSectionFromJsonStr(responseJsonStr);
 
-        }catch (IOException e){
+        } catch (IOException e) {
 
             Log.e(LOG_TAG, "Error ", e);
 
-        }catch(JSONException e){
+        } catch (JSONException e) {
 
             Log.e(LOG_TAG, e.getMessage(), e);
             e.printStackTrace();
 
-        }finally {
+        } finally {
 
-            if(urlConnection != null) {
+            if (urlConnection != null) {
                 urlConnection.disconnect();
             }
-            if(reader != null){
+            if (reader != null) {
                 try {
                     reader.close();
                 } catch (final IOException e) {
-                    Log.e(LOG_TAG, "Error closing stream",e);
+                    Log.e(LOG_TAG, "Error closing stream", e);
                 }
             }
         }
 
-        if(mSectionIdList.size() == 0){
-            for(String title : defaultTabTitle){
+        if (mSectionIdList.size() == 0) {
+            for (String title : defaultTabTitle) {
                 mSectionIdList.add(title);
             }
         }
 
         //Get Content
-        for(String sectionId : mSectionIdList){
+        for (String sectionId : mSectionIdList) {
 
             try {
 
@@ -199,25 +203,25 @@ public class NewsBoxSyncAdapter extends AbstractThreadedSyncAdapter {
                 getContentFromJsonStr(responseJsonStr);
 
 
-            }catch (IOException e){
+            } catch (IOException e) {
 
                 Log.e(LOG_TAG, "Error ", e);
 
-            }catch(JSONException e){
+            } catch (JSONException e) {
 
                 Log.e(LOG_TAG, e.getMessage(), e);
                 e.printStackTrace();
 
-            }finally {
+            } finally {
 
-                if(urlConnection != null) {
+                if (urlConnection != null) {
                     urlConnection.disconnect();
                 }
-                if(reader != null){
+                if (reader != null) {
                     try {
                         reader.close();
                     } catch (final IOException e) {
-                        Log.e(LOG_TAG, "Error closing stream",e);
+                        Log.e(LOG_TAG, "Error closing stream", e);
                     }
                 }
             }
@@ -383,11 +387,11 @@ public class NewsBoxSyncAdapter extends AbstractThreadedSyncAdapter {
                 if (cursor.getCount() != 0) {
                     cursor.moveToFirst();
                     getContext().getContentResolver().update(NewsContract.SectionEntry.CONTENT_URI, contentValues, selection, selectionArgs);
-                    updatedrow ++;
-                    } else {
-                        toInsertSectionContentValues.add(contentValues);
-                        Log.d(LOG_TAG, "UpdateSectionTask Complete. " + updatedrow + " Updated");
-                    }
+                    updatedrow++;
+                } else {
+                    toInsertSectionContentValues.add(contentValues);
+                    Log.d(LOG_TAG, "UpdateSectionTask Complete. " + updatedrow + " Updated");
+                }
 
                 cursor.close();
             }
@@ -419,7 +423,7 @@ public class NewsBoxSyncAdapter extends AbstractThreadedSyncAdapter {
                 if (cursor.getCount() != 0) {
                     cursor.moveToFirst();
                     getContext().getContentResolver().update(NewsContract.ContentEntry.CONTENT_URI, contentValues, selection, selectionArgs);
-                    updatedrow ++;
+                    updatedrow++;
                 } else {
                     toInsertContentContentValues.add(contentValues);
                     Log.d(LOG_TAG, "UpdateContentTask Complete. " + updatedrow + " Updated");
