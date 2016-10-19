@@ -1,8 +1,16 @@
 package com.awesomekris.android.newsbox;
 
+import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
+import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
+import android.support.annotation.Nullable;
+import android.view.MenuItem;
 
 /**
  * Created by kris on 16/10/18.
@@ -11,12 +19,17 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         Preference.OnPreferenceChangeListener, SharedPreferences.OnSharedPreferenceChangeListener {
     @Override
     public boolean onPreferenceChange(Preference preference, Object o) {
-        return false;
+
+        if(preference instanceof CheckBoxPreference) {
+                CheckBoxPreference checkBoxPreference = (CheckBoxPreference)preference;
+        }
+
+        return true;
     }
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
-        return false;
+        return true;
     }
 
     @Override
@@ -67,14 +80,14 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
 //                        .getString(preference.getKey(), ""));
 //    }
 //
-//    @Override
-//    protected void onCreate(@Nullable Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 //        setupActionBar();
-//        getFragmentManager().beginTransaction()
-//                .replace(android.R.id.content, new GeneralPreferenceFragment())
-//                .commit();
-//    }
+        getFragmentManager().beginTransaction()
+                .replace(android.R.id.content, new SettingsFragment())
+                .commit();
+    }
 //
 //    private void setupActionBar() {
 //        ActionBar actionBar = getSupportActionBar();
@@ -83,28 +96,28 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
 //            actionBar.setDisplayHomeAsUpEnabled(true);
 //        }
 //    }
-//    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-//    public static class GeneralPreferenceFragment extends PreferenceFragment {
-//        @Override
-//        public void onCreate(Bundle savedInstanceState) {
-//            super.onCreate(savedInstanceState);
-//            addPreferencesFromResource(R.xml.pref_general);
-//            setHasOptionsMenu(true);
-//
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public static class SettingsFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_general);
+            setHasOptionsMenu(true);
+
 //            bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_sort_key)));
-//        }
-//
-//        @Override
-//        public boolean onOptionsItemSelected(MenuItem item) {
-//            //int id = item.getItemId();
-//            return super.onOptionsItemSelected(item);
-//        }
-//    }
-//
-//    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-//    @Override
-//    public Intent getParentActivityIntent() {
-//        return super.getParentActivityIntent().addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//    }
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            //int id = item.getItemId();
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    @Override
+    public Intent getParentActivityIntent() {
+        return super.getParentActivityIntent().addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    }
 
 }
