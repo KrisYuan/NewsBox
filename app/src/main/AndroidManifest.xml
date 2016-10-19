@@ -65,6 +65,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.awesomekris.android.newsbox.NewsList" />
         </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/action_settings"
+            android:parentActivityName=".NewsList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NewsList" />
+        </activity>
         <receiver
             android:name=".widget.NewsWidgetProvider"
             android:label="@string/title_widget_today">

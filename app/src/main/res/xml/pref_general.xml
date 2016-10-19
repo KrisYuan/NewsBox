@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <CheckBoxPreference
+        android:title="@string/artanddesign"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/australiaNews"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/betterBusiness"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/books"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/business"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/cardiff"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/childrensBooksSite"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/cities"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/commentisfree"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/community"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/crosswords"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/culture"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/cultureNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/cultureProfessionalsNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/edinburgh"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/education"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/enterpriseNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/environment"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/extra"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/fashion"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/film"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/football"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/globalDevelopment"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/globalDevelopmentProfessionalsNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/governmentComputingNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/guardianProfessional"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/healthcareNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/help"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/higherEducationNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/housingNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/info"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/jobsadvice"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/katine"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/law"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/leeds"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/lifeandstyle"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/local"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/localGovernmentNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/artanddesign"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/media"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/mediaNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/membership"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/money"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/music"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/news"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/politics"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/publicLeadersNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/science"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/search"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/smallBusinessNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/socialCareNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/socialEnterpriseNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/society"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/societyProfessionals"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/sport"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/stage"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/teacherNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/technology"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/theguardian"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/theobserver"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/travel"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/travelOffers"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/tvAndRadio"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/ukNews"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/usNews"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/voluntarySectorNetwork"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/weather"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/womenInLeadership"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+    <CheckBoxPreference
+        android:title="@string/world"
+        android:summaryOn="Checked"
+        android:summaryOff="Unchecked"
+        android:persistent="true"
+        android:defaultValue="true"/>
+
+</PreferenceScreen>

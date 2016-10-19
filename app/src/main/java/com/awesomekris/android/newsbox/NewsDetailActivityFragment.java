@@ -16,8 +16,6 @@ import com.google.android.gms.ads.AdView;
  */
 public class NewsDetailActivityFragment extends Fragment {
 
-
-
     public static final String NEWS_DETAIL = "NEWS_DETAIL";
 
     private String mHeadline;
@@ -47,7 +45,6 @@ public class NewsDetailActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_news_detail, container, false);
-
 
         String[] detailNews = getActivity().getIntent().getStringArrayExtra(NEWS_DETAIL);
         mHeadline = detailNews[0];//bundle.getString(NewsDetailActivity.HEADLINE);

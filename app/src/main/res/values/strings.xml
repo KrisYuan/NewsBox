@@ -30,6 +30,9 @@
     <string name="a11y_share_button">Click this button to share news with friends.</string>
     <string name="a11y_admob">Click this to view advertisement.</string>
 
+    <!-- MultiSelectListPreference -->
+    <string name="pref_tab_title_choice">Customize Tab Title</string>
+
     <!-- Default Tab Title -->
     <string name="artanddesign">artanddesign</string>
     <string name="australiaNews">australia-news</string>

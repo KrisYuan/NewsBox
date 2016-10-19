@@ -1,6 +1,7 @@
 package com.awesomekris.android.newsbox;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +9,8 @@ import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.google.android.gms.analytics.HitBuilders;
@@ -24,13 +27,41 @@ public class NewsDetailActivity extends AppCompatActivity {
     private ImageView mThumbnailView;
     private String mHeadline;
 //    private String mShortUrl;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window window = getWindow();
+        //implement shared element transition
+        window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
+                            View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+
+        }
         setContentView(R.layout.activity_news_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+
+        if(mToolbar != null) {
+            setSupportActionBar(mToolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
+        // Hide status bar
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        // Show status bar
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
 
         mThumbnailView = (ImageView) findViewById(R.id.detail_thumbnail);
