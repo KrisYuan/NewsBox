@@ -29,7 +29,7 @@
                 android:paddingEnd="@dimen/list_side_margin"
                 android:paddingStart="@dimen/list_side_margin"
                 android:textColor="@android:color/white"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:contentDescription="@string/a11y_headline"/>
 
             <TextView
@@ -71,10 +71,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/body_text_summary_margin"
             android:fontFamily="serif"
-            android:paddingEnd="8dp"
-            android:paddingStart="8dp"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
             android:textColor="@android:color/black"
-            android:textSize="18dp"
+            android:textSize="22sp"
             android:contentDescription="@string/a11y_body_text_summary"/>
 
 

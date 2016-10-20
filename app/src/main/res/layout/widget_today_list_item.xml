@@ -23,6 +23,7 @@
             android:fontFamily="sans-serif"
             android:contentDescription="@string/a11y_headline"
             android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/black"
             tools:text="48"/>
 
         <TextView
@@ -30,9 +31,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:fontFamily="sans-serif"
+            android:fontFamily="serif"
             android:contentDescription="@string/a11y_trail_text"
             android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/black"
             tools:text="32"/>
 
     </LinearLayout>

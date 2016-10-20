@@ -36,7 +36,7 @@ public class NewsListRecyclerViewAdapter  extends RecyclerViewCursorAdapter<Recy
     private String mTrailText;
     private String mThumbnail;
     private String mBodyTextSummary;
-//    private String mShortUrl;
+    private String mShortUrl;
 
     public NewsListRecyclerViewAdapter(Context context, Cursor c, int flags) {
         super(context, c, flags);
@@ -52,7 +52,7 @@ public class NewsListRecyclerViewAdapter  extends RecyclerViewCursorAdapter<Recy
         mTrailText = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_TRAIL_TEXT);
         mThumbnail = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_THUMBNAIL);
         mBodyTextSummary = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_BODY_TEXT_SUMMARY);
-//        mShortUrl = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_SHORT_URL);
+        mShortUrl = cursor.getString(NewsContract.ContentEntry.COLUMN_INDEX_SHORT_URL);
 
         ((ViewHolder)holder).titleView.setText(mHeadline);
         ((ViewHolder)holder).dateView.setText(mPublicationDate);
@@ -95,7 +95,7 @@ public class NewsListRecyclerViewAdapter  extends RecyclerViewCursorAdapter<Recy
                 //TODO: go to detail fragment
 //                    view.setTransitionName(mContext.getString(R.string.photo_transition));
 
-                String[] detailNews = new String[]{mHeadline,mPublicationDate,mTrailText,mThumbnail,mBodyTextSummary};
+                String[] detailNews = new String[]{mHeadline,mPublicationDate,mTrailText,mThumbnail,mBodyTextSummary,mShortUrl};
 //                Bundle detailNews = new Bundle();
 //                detailNews.putString(mHeadline, NewsDetailActivity.HEADLINE);
 //                detailNews.putString(mPublicationDate, NewsDetailActivity.PUBLICATION_DATE);

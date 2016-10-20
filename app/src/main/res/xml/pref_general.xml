@@ -3,483 +3,544 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <CheckBoxPreference
-        android:title="@string/artanddesign"
+        android:key="@string/artanddesign"
+        android:title="Art and Design"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/australiaNews"
+        android:key="@string/australiaNews"
+        android:title="Austraila News"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
-
-    <CheckBoxPreference
-        android:title="@string/betterBusiness"
-        android:summaryOn="Checked"
-        android:summaryOff="Unchecked"
-        android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/books"
+        android:key="@string/betterBusiness"
+        android:title="Better Business"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/business"
+        android:key="@string/books"
+        android:title="Books"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/cardiff"
+        android:key="@string/business"
+        android:title="Business"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/childrensBooksSite"
+        android:key="@string/cardiff"
+        android:title="Cardiff"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/cities"
+        android:key="@string/childrensBooksSite"
+        android:title="Children's Books Site"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/commentisfree"
+        android:key="@string/cities"
+        android:title="Cities"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/community"
+        android:key="@string/commentisfree"
+        android:title="Comment is Free"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/crosswords"
+        android:key="@string/community"
+        android:title="Community"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/culture"
+        android:key="@string/crosswords"
+        android:title="Crosswords"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/cultureNetwork"
+        android:key="@string/culture"
+        android:title="Culture"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/cultureProfessionalsNetwork"
+        android:key="@string/cultureNetwork"
+        android:title="Culture Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/edinburgh"
+        android:key="@string/cultureProfessionalsNetwork"
+        android:title="Culture Professionals' Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/education"
+        android:key="@string/edinburgh"
+        android:title="Edinburgh"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/enterpriseNetwork"
+        android:key="@string/education"
+        android:title="Education"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/environment"
+        android:key="@string/enterpriseNetwork"
+        android:title="Enterprise Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/extra"
+        android:key="@string/environment"
+        android:title="Environment"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/fashion"
+        android:key="@string/extra"
+        android:title="Extra"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/film"
+        android:key="@string/fashion"
+        android:title="Fashion"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/football"
+        android:key="@string/film"
+        android:title="Film"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/globalDevelopment"
+        android:key="@string/football"
+        android:title="Football"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/globalDevelopmentProfessionalsNetwork"
+        android:key="@string/globalDevelopment"
+        android:title="Global Development"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/governmentComputingNetwork"
+        android:key="@string/globalDevelopmentProfessionalsNetwork"
+        android:title="Global Development Professionals' Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/guardianProfessional"
+        android:key="@string/governmentComputingNetwork"
+        android:title="Government Computing Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/healthcareNetwork"
+        android:key="@string/guardianProfessional"
+        android:title="Guardian Professional"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/help"
+        android:key="@string/healthcareNetwork"
+        android:title="Healthcare Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/higherEducationNetwork"
+        android:key="@string/help"
+        android:title="Help"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/housingNetwork"
+        android:key="@string/higherEducationNetwork"
+        android:title="Higher Education Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/info"
+        android:key="@string/housingNetwork"
+        android:title="Housing Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/jobsadvice"
+        android:key="@string/info"
+        android:title="Info"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/katine"
+        android:key="@string/jobsadvice"
+        android:title="Jobs' Advice"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/law"
+        android:key="@string/katine"
+        android:title="Katine"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/leeds"
+        android:key="@string/law"
+        android:title="Law"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/lifeandstyle"
+        android:key="@string/leeds"
+        android:title="Leeds"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/local"
+        android:key="@string/lifeandstyle"
+        android:title="Life and Style"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/localGovernmentNetwork"
+        android:key="@string/local"
+        android:title="Local"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/artanddesign"
+        android:key="@string/localGovernmentNetwork"
+        android:title="Loacal Government Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/media"
+        android:key="@string/media"
+        android:title="Media"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/mediaNetwork"
+        android:key="@string/mediaNetwork"
+        android:title="Media Newwork"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/membership"
+        android:key="@string/membership"
+        android:title="Membership"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/money"
+        android:key="@string/money"
+        android:title="Money"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/music"
+        android:key="@string/music"
+        android:title="Music"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/news"
+        android:key="@string/news"
+        android:title="News"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/politics"
+        android:key="@string/politics"
+        android:title="Politics"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/publicLeadersNetwork"
+        android:key="@string/publicLeadersNetwork"
+        android:title="Public Leaders Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/science"
+        android:key="@string/science"
+        android:title="Science"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/search"
+        android:key="@string/search"
+        android:title="Search"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/smallBusinessNetwork"
+        android:key="@string/smallBusinessNetwork"
+        android:title="Small Business Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/socialCareNetwork"
+        android:key="@string/socialCareNetwork"
+        android:title="Social Care Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/socialEnterpriseNetwork"
+        android:key="@string/socialEnterpriseNetwork"
+        android:title="Social Enterprise Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/society"
+        android:key="@string/society"
+        android:title="Society"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/societyProfessionals"
+        android:key="@string/societyProfessionals"
+        android:title="Society Professionals"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/sport"
+        android:key="@string/sport"
+        android:title="Sport"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/stage"
+        android:key="@string/stage"
+        android:title="Stage"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/teacherNetwork"
+        android:key="@string/teacherNetwork"
+        android:title="Teacher Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/technology"
+        android:key="@string/technology"
+        android:title="Technology"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/theguardian"
+        android:key="@string/theguardian"
+        android:title="The Guardian"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/theobserver"
+        android:key="@string/theobserver"
+        android:title="The Observer"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/travel"
+        android:key="@string/travel"
+        android:title="Travel"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/travelOffers"
+        android:key="@string/travelOffers"
+        android:title="Travel Offers"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/tvAndRadio"
+        android:key="@string/tvAndRadio"
+        android:title="TV and Radio"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/ukNews"
+        android:key="@string/ukNews"
+        android:title="UK News"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/usNews"
+        android:key="@string/usNews"
+        android:title="US News"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/voluntarySectorNetwork"
+        android:key="@string/voluntarySectorNetwork"
+        android:title="Voluntary Sector Network"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/weather"
+        android:key="@string/weather"
+        android:title="Weather"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
         android:defaultValue="true"/>
 
     <CheckBoxPreference
-        android:title="@string/womenInLeadership"
+        android:key="@string/womenInLeadership"
+        android:title="Women In Leadership"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"
-        android:defaultValue="true"/>
+        android:defaultValue="false"/>
 
     <CheckBoxPreference
-        android:title="@string/world"
+        android:key="@string/world"
+        android:title="World"
         android:summaryOn="Checked"
         android:summaryOff="Unchecked"
         android:persistent="true"

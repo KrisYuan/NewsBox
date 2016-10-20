@@ -26,7 +26,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 //    public static final String BODAY_TEXT_SUMMARY = "BODY_TEXT_SUMMARY";
     private ImageView mThumbnailView;
     private String mHeadline;
-//    private String mShortUrl;
+    private String mShortUrl;
     private Toolbar mToolbar;
 
     @Override
@@ -69,14 +69,14 @@ public class NewsDetailActivity extends AppCompatActivity {
         mHeadline = detailNews[0];
         String mThumbnail = detailNews[3];
         Picasso.with(this).load(mThumbnail).into(mThumbnailView);
-//        mShortUrl = detailNews[5];
+        mShortUrl = detailNews[5];
 //        Uri uri = Uri.parse(mShortUrl).buildUpon().build();
 //        getSupportActionBar().setTitle(mHeadline);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         final Intent shareIntent = ShareCompat.IntentBuilder.from(this)
                 .setType("text/plain")
-                .setText(mHeadline)
+                .setText(mHeadline + "#" + mShortUrl)
                 .getIntent();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
